@@ -22,6 +22,10 @@ export default Exapmle;
 // 이렇게 해서 API mocking 해주면됨
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   // api mocking
+
+  // 처음 들어오면 2초간 pending,
+  // 5초이내에 새로고침하면 캐시는 stale  - maxage 5
+  // 15초 이내에 새로고침하면 캐시는 hit, (캐시된 HTML 보여줌) 그 이후에 새로고침하면 stale 반복 (새로운 HTML 프리렌더)
   res.setHeader(
     'Cache-Control',
     'public, s-maxage=5, stale-while-revalidate=10'
