@@ -1,19 +1,28 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from '../../styles/header.module.scss';
 
-interface Props {}
+interface Props {
+  // reactComponent임
+  rightElements?: React.ReactElement[];
+}
 
-// 그냥 이미지 태그 쓰면 린트 에러뜸
-
-const HeaderComponent = ({}: Props) => {
+const HeaderComponent = ({ rightElements }: Props) => {
   return (
     <header className={styles.header}>
       <div className={styles.flexItem}>
         <Link href="/" className={styles.box}>
-          <img src="/inflearn.png" width={110} height={20} alt="인프런 로고" />
+          <Image
+            src="/inflearn.png"
+            width={110}
+            height={20}
+            alt="인프런 로고"
+          />
         </Link>
       </div>
+      {/* rightElements 가 있으면 flextItem 추가  */}
+      {rightElements && <div className={styles.flexItem}>{rightElements}</div>}
     </header>
   );
 };
