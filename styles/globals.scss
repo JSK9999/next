@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// 전역상태에서 dispaly: contents를 통해서 박스 제외하고 css 제외 시켜서 초기화 시킴
+@layer base {
+  #__next {
+    display: contents;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
